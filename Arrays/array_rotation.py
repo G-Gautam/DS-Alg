@@ -1,10 +1,9 @@
-import pytest
-
 #ar: the array to be rotated
 #d: the number of rotations
 #n: the size of the array
 
 #Output: the rotated array
+
 #Time Complexity: O(n)
 #Space Complexity: O(n)
 def rotate_with_temp_array(ar, d, n):
@@ -16,3 +15,11 @@ def rotate_with_temp_array(ar, d, n):
         temp.append(ar[i])
     return temp
 
+#Time Complexity: O(n)
+#Space Complexity: O(n)
+def rotate_inplace_with_recursion(ar, d, n):
+    if(d == 0):
+        return ar
+    x = ar.pop(0)
+    ar.append(x)
+    return rotate_inplace_with_recursion(ar, d-1, n)
