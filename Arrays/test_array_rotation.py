@@ -15,3 +15,12 @@ def test_rotate_inplace_with_recursion():
     #Reninitalize because of inplace rotation
     ar1 = [1,2,3,4,5,6]
     assert array_rotation.rotate_inplace_with_recursion(ar1, 9, 6) == output
+
+def test_rotate_inplace_dynamic_list():
+    ar = [1,2,3,4,5,6]
+    output = [4,5,6,1,2,3]
+    assert array_rotation.rotate_inplace_dynamic_list(ar, 3, 6) == output
+
+    #Reninitalize because of inplace rotation
+    ar1 = [1,2,3,4,5,6]
+    assert array_rotation.rotate_inplace_dynamic_list(ar1, 9, 6) == output
