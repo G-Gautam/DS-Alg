@@ -32,3 +32,20 @@ def binary_search_sorted_array_recursive(ar, minI, maxI, d, n):
         return binary_search_sorted_array_recursive(ar, minI, middle - 1, d, n)
     else:
         return binary_search_sorted_array_recursive(ar, middle + 1, maxI, d, n)
+
+
+def binary_search_rotated_array_recursive(ar, minI, maxI, d):    
+    if (minI > maxI): 
+        return -1
+      
+    middle = (minI+maxI)//2
+    if (ar[middle] == d): 
+        return middle
+    if ar[minI] <= ar[middle]: 
+        if d >= ar[minI] and d <= ar[middle]: 
+            return binary_search_rotated_array_recursive(ar, minI, middle-1, d) 
+        return binary_search_rotated_array_recursive(ar, middle+1, maxI, d) 
+
+    if d >= ar[middle] and d <= ar[maxI]: 
+        return binary_search_rotated_array_recursive(a, middle+1, maxI, d) 
+    return binary_search_rotated_array_recursive(ar, minI, middle-1, d)
